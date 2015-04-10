@@ -1,0 +1,79 @@
+% The MIT License (MIT)
+% 
+% Copyright (c) 2015 Alexander Ben Nasrallah
+% 
+% Permission is hereby granted, free of charge, to any person obtaining a copy
+% of this software and associated documentation files (the "Software"), to deal
+% in the Software without restriction, including without limitation the rights
+% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+% copies of the Software, and to permit persons to whom the Software is
+% furnished to do so, subject to the following conditions:
+% 
+% The above copyright notice and this permission notice shall be included in all
+% copies or substantial portions of the Software.
+% 
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+% SOFTWARE.
+
+\documentclass[a4paper]{article}
+
+\usepackage{ngerman}
+\usepackage{eurosym}
+\usepackage{units}
+\usepackage{listings}
+
+\title{Typografies\"unden}
+\author{Alexander Ben Nasrallah}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+	Dieses Dokument gibt eine \"Ubersicht an typografischen Konventionen und
+	erkl\"art, wie man sie in \LaTeX{} umsetzt.
+
+	Wir richten uns hierbei an die deutsche Sprache.
+\end{abstract}
+
+\begin{description}
+	\item[Abstand vor Einheiten] Im Deutschen ist es \"ublich zwischen zwischen
+		Zahl und Ma\ss{}einheit bzw. Symbol steht ein Leerzeichen zu lassen. Die
+		einzige Ausnahme ist der Winkelgrad. \LaTeX{} liefert sogar die Option
+		ein \emph{halbes} und \emph{gesch\"utztes} Leerzeichen mit \verb+\,+ zu
+		setzen. Das Paket \emph{units} nimmt einem die Aufgabe ab, auf solche
+		Abst\"ande zu achten.
+
+		\begin{tabular}[c]{|rl|}
+			\hline
+			\bf{Beispiel}             & \bf{\LaTeX}                       \\
+			\hline
+			25\,\euro                 & \verb+25\,\euro+                  \\
+			\unit[80]{\%}             & \verb+\unit[80]{\%}+              \\
+			$45^\circ$                & \verb+$45^\circ$+                 \\
+			$100\,^{\circ}\mathrm{C}$ & \verb+$100\,^{\circ}\mathrm{C}$+ \\
+			\hline
+		\end{tabular}
+	\item[Abstand bei K\"urzeln] Die Regel, dass nach einem Punkt ein
+		Leerschritt zu folgen hat, gilt auch für Abkürzungen. Auch hier gilt,
+		dass der Abstand aus optischen Gründen auf halbe Laufweite reduziert
+		werden kann. Hier sollte man darauf achten, ein gesch\"utztes
+		Leerzeichen zu verwenden, sodass \LaTeX{} keinen Zeilenumbruch
+		einf\"ugt.
+
+		\begin{tabular}[c]{|rl|}
+			\hline
+			\bf{Beispiele} & \bf{\LaTeX}       \\
+			\hline
+			u.\,v.\,m.     & \verb+u.\,v.\,m.+ \\
+			d.\,h.         & \verb+d.\,h.+     \\
+			\hline
+		\end{tabular}
+
+\end{description}
+\end{document}
+
+
