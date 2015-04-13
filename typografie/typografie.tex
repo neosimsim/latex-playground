@@ -22,20 +22,21 @@
 
 \documentclass[a4paper]{article}
 
-\usepackage{ngerman}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
 \usepackage{eurosym}
 \usepackage{units}
 \usepackage{listings}
 \usepackage[colorlinks=true, linktoc=page]{hyperref}
 
-\title{Typografies\"unden}
+\title{Typografiesünden}
 \author{Alexander Ben Nasrallah}
 
 \begin{document}
 \maketitle
 \begin{abstract}
-	Dieses Dokument gibt eine \"Ubersicht an typografischen Konventionen und
-	erkl\"art, wie man sie in \LaTeX{} umsetzt.
+	Dieses Dokument gibt eine Übersicht an typografischen Konventionen und
+	erklärt, wie man sie in \LaTeX{} umsetzt.
 
 	Wir richten uns hierbei an die deutsche Sprache.
 \end{abstract}
@@ -43,12 +44,12 @@
 \tableofcontents
 
 \section{Abstand vor Einheiten}
-Im Deutschen ist es \"ublich zwischen zwischen
+Im Deutschen ist es üblich zwischen zwischen
 Zahl und Ma\ss{}einheit bzw. Symbol steht ein Leerzeichen zu lassen. Die
 einzige Ausnahme ist der Winkelgrad. \LaTeX{} liefert sogar die Option
-ein \emph{halbes} und \emph{gesch\"utztes} Leerzeichen mit \verb+\,+ zu
+ein \emph{halbes} und \emph{geschütztes} Leerzeichen mit \verb+\,+ zu
 setzen. Das Paket \emph{units} nimmt einem die Aufgabe ab, auf solche
-Abst\"ande zu achten.
+Abstände zu achten.
 
 \begin{tabular}[c]{|ll|}
 	\hline
@@ -61,13 +62,13 @@ Abst\"ande zu achten.
 	\hline
 \end{tabular}
 
-\section{Abstand bei K\"urzeln}
+\section{Abstand bei Kürzeln}
 Die Regel, dass nach einem Punkt ein
 Leerschritt zu folgen hat, gilt auch für Abkürzungen. Auch hier gilt,
 dass der Abstand aus optischen Gründen auf halbe Laufweite reduziert
-werden kann. Hier sollte man darauf achten, ein gesch\"utztes
+werden kann. Hier sollte man darauf achten, ein geschütztes
 Leerzeichen zu verwenden, sodass \LaTeX{} keinen Zeilenumbruch
-einf\"ugt.
+einfügt.
 
 \begin{tabular}[c]{|ll|}
 	\hline
@@ -84,7 +85,7 @@ nicht um zwei, vier oder acht. Hierbei wird sowohl vor als auch nach den
 Auslassungspunkten ein Abstand gesetzt. Ausnahme: Mit den Punkten wird
 angezeigt, dass ein Teil des Wortes ausgelassen wird.
 
-Nach M\"oglichkeit sollte statt dreier Punkte ... das daf\"ur vorgesehene
+Nach Möglichkeit sollte statt dreier Punkte ... das dafür vorgesehene
 Sonderzeichen \ldots (\verb+\ldots+) Verwendungen finden.
 
 \begin{tabular}[c]{|ll|}
@@ -100,18 +101,18 @@ Der Bindestrich oder \emph{Viertelgeviertstrich} \glqq-\grqq findet Einsatz als
 Silbentrennstrich, als Auslassungszeichen bei Ellipsen und eben als
 Bindestrich.
 
-Der Etwas l\"angere \emph{Halbgeviertstrich} \glqq--\grqq dient als Gedankenstrich, als
+Der Etwas längere \emph{Halbgeviertstrich} \glqq--\grqq dient als Gedankenstrich, als
 Streckenstrich und als bis-Zeichen.
 
 \begin{tabular}[c]{|lll|}
 	\hline
-	\bf{Anwendung} & \bf{Beispiele}                    & \bf{\LaTeX}                              \\
+	\bf{Anwendung} & \bf{Beispiele}                  & \bf{\LaTeX}                            \\
 	\hline
-	Ellipsen       & Hin- und R\"uckweg                & \verb+Hin- und R\"uckweg+                \\
-	Bindestrich    & H-Milch                                  &   \verb+H-Milch+                                       \\
-	Gedankenstrich & Linux -- Ein Betriebssystem                                 &  \verb+Linux -- Ein Betriebssystem +                                         \\
-	Stecken        & die Entfernung Hamburg--M\"unchen & \verb+die Entfernung Hamburg--M\"unchen+ \\
-	bis-Zeichen    & \"Offnungszeiten 9--11 Uhr        & \verb+\"Offnungszeiten 9--11 Uhr+        \\
+	Ellipsen       & Hin- und Rückweg                & \verb+Hin- und Rückweg+                \\
+	Bindestrich    & H-Milch                         & \verb+H-Milch+                         \\
+	Gedankenstrich & Linux -- Ein Betriebssystem     & \verb+Linux -- Ein Betriebssystem +    \\
+	Stecken        & die Entfernung Hamburg--München & \verb+die Entfernung Hamburg--München+ \\
+	bis-Zeichen    & Öffnungszeiten 9--11 Uhr        & \verb+Öffnungszeiten 9--11 Uhr+        \\
 	\hline
 \end{tabular}
 

@@ -25,11 +25,13 @@
 \usepackage{listings}
 \usepackage[]{color}
 \usepackage[colorlinks=true, pagebackref=true, linktoc=page, urlcolor=cyan]{hyperref}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
 
 \renewcommand{\lstlistlistingname}{Codestellen} % Ändert die Überschrift von \lstlistoflistings.
-\renewcommand{\lstlistingname}{Codestelle}      % Ändert die Bezeichung der Captions.
+\renewcommand{\lstlistingname}{Codestelle}      % Ändert die Bezeichnung der Captions.
 
-% Definiere einen eigenen Syle:
+% Definiere einen eigenen Style:
 \lstdefinestyle{cli}{
 	backgroundcolor=\color{black},
 	basicstyle=\color{white},
@@ -56,25 +58,25 @@
 	showstringspaces=false,
 }
 
-% Mit \lstset definiert man Standardwerte für alle Sprache, d. h. ist ein Wert
-% nicht getzt, wie die Hintergrundfarbe, wir die hier definierte verwendet.
+% Mit \lstset definiert man Standardwerte für alle Sprache, d.h. ist ein Wert
+% nicht gesetzt, wie die Hintergrundfarbe, wir die hier definierte verwendet.
 % Setzt man allerdings vorher eine Hintergrundfarbe, so wird diese genommen.
 
 % \lstset{language=cli} % Dieser Ausdruck setzt die Einstellungen von cli als Standard.
-\lstset{backgroundcolor=\color{yellow}} % Der Hintergrung von cli bleibt dennoch schwarz.
+\lstset{backgroundcolor=\color{yellow}} % Der Hintergrund von cli bleibt dennoch schwarz.
 
-\title{Eigene Codesprache f\"ur lstlisting}
+\title{Eigene Codesprache für lstlisting}
 \author{Alexander Ben Nasrallah}
 
 \begin{document}
 
 \maketitle
 \begin{abstract}
-	Wir wollen uns hier anschauen, wie man eine eigene Codesprache f\"ur
+	Wir wollen uns hier anschauen, wie man eine eigene Codesprache für
 	\emph{lstlisting} definiert.
 \end{abstract}
 
-Mit \verb+\lstlistoflistings+ generiert man ein Verzeichnes aller listings mit
+Mit \verb+\lstlistoflistings+ generiert man ein Verzeichnis aller listings mit
 Caption:
 \lstlistoflistings
 
