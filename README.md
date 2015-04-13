@@ -1,5 +1,5 @@
 # latex-playground
-Dieses Projekt ist dazu da, verschiedenes mit **LaTeX** auszuprobieren.
+Dieses Projekt ist dazu da, Verschiedenes mit **LaTeX** auszuprobieren.
 Gleichzeitig soll es als Nachschlagequelle dienen.  Der Fokus liegt primär auf
 der  deutschen Sprache.
 
