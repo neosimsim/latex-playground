@@ -22,34 +22,20 @@
 
 \documentclass[a4paper]{article}
 
+\usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 \usepackage{listings}
+\usepackage[colorlinks=true, linktoc=page]{hyperref}
 
 \begin{document}
 Es gibt verschiedene Varianten ein Literaturverzeichnis mit \LaTeX{} zu
 erstellen.
+
+\tableofcontents
+
 \section{thebibliography}
 \LaTeX{} liefert bereits eine Umgebung mit, \verb+thebibliography+. In dieser
 Umgebung werden alle Referenzen aufgelistet.
-\begin{thebibliography}{9}
-	% Der Parameter ist der Referenzschlüssel, muss also
-	% eindeutig sein.
-	\bibitem{lamport94}[language=TeX]
-		Leslie Lamport,
-		\emph{\LaTeX: a document preparation system},
-		Addison Wesley, Massachusetts,
-		2nd edition,
-		1994.
-	\bibitem{lamport95}
-		Leslie Lamport,
-		\emph{\LaTeX: a document preparation system},
-		Addison Wesley, Massachusetts,
-		3nd edition,
-		1995.
-\end{thebibliography}
-
-Der Code zum obigem Literaturverzeichnis sieht wie folgt aus:
-\begin{lstlisting}
 \begin{thebibliography}{9}
 	% Der Parameter ist der Referenzschlüssel, muss also
 	% eindeutig sein.
@@ -66,8 +52,23 @@ Der Code zum obigem Literaturverzeichnis sieht wie folgt aus:
 		3nd edition,
 		1995.
 \end{thebibliography}
+
+Der Code zum obigem Literaturverzeichnis sieht wie folgt aus:
+\begin{lstlisting}[language=TeX, tabsize=4]
+\begin{thebibliography}{9}
+	\bibitem{lamport94}
+		Leslie Lamport,
+		\emph{\LaTeX: a document preparation system},
+		Addison Wesley, Massachusetts,
+		2nd edition,
+		1994.
+	...
+\end{thebibliography}
 \end{lstlisting}
 
+Links verweist man mit \verb+\cite{<item name>}+: \cite{lamport94}.
+
+\url{http://en.wikibooks.org/wiki/LaTeX/Bibliography_Management}
 \end{document}
 
 
