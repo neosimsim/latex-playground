@@ -26,10 +26,26 @@
 \usepackage[ngerman]{babel}
 \usepackage{listings}
 \usepackage[colorlinks=true, linktoc=page]{hyperref}
+\usepackage[]{color}
+\usepackage[backend=biber]{biblatex}                 % Biber ist eigentlich der Standardwert. Eine Alternative ist bibtex.
+\addbibresource{literatur.bib}
 
 \begin{document}
 Es gibt verschiedene Varianten ein Literaturverzeichnis mit \LaTeX{} zu
 erstellen.
+
+\lstdefinestyle{latex}{
+	keywordstyle=\bfseries,
+	backgroundcolor=\color{white},
+	frame=single,
+}
+
+\lstset{
+	language=TeX,
+	morekeywords={begin,bibitem,emph,addbibresource},
+	tabsize=4,
+	style=latex
+}
 
 \tableofcontents
 
@@ -37,9 +53,7 @@ erstellen.
 \LaTeX{} liefert bereits eine Umgebung mit, \verb+thebibliography+. In dieser
 Umgebung werden alle Referenzen aufgelistet.
 \begin{thebibliography}{9}
-	% Der Parameter ist der Referenzschlüssel, muss also
-	% eindeutig sein.
-	\bibitem{lamport94}
+	\bibitem{lamport94}	% Der Parameter ist der Referenzschlüssel, muss also eindeutig sein.
 		Leslie Lamport,
 		\emph{\LaTeX: a document preparation system},
 		Addison Wesley, Massachusetts,
@@ -54,7 +68,7 @@ Umgebung werden alle Referenzen aufgelistet.
 \end{thebibliography}
 
 Der Code zum obigem Literaturverzeichnis sieht wie folgt aus:
-\begin{lstlisting}[language=TeX, tabsize=4]
+\begin{lstlisting}[]
 \begin{thebibliography}{9}
 	\bibitem{lamport94}
 		Leslie Lamport,
@@ -68,7 +82,36 @@ Der Code zum obigem Literaturverzeichnis sieht wie folgt aus:
 
 Links verweist man mit \verb+\cite{<item name>}+: \cite{lamport94}.
 
+\section{BibLaTeX}
+\emph{BibLaTeX} ist der Nachfolger von \emph{BibTeX} und wir werden uns hier auf
+\emph{BibLaTeX} einschrenken. \emph{BibLaTeX} verwendet eine Datenbank zu
+referenzieren. Dies hat den Vorteil, dass man leichter aus mehreren .tex-Dateien
+referenzieren kann.
+\lstinputlisting[caption={literatur.bib}]{literatur.bib}
+
+Die Verwendung ist allerdings aufwendiger als mit der
+\emph{thebibliography}-Umgebung.
+\begin{enumerate}
+	\item Das Paket \emph{biblatex} muss geladen werden.
+	\item Die Datenbankdatei musst angegeben werden
+		\begin{lstlisting}
+\addbibresource{literatur.bib}
+		\end{lstlisting}
+	\item Nun kann man mit \verb+\cite+ zitieren.
+	\item Nun wird \LaTeX{} beim Kompilieren einen Fehler melden, das die Referenzen nicht bekannt sind. Daher sind folgende Schritte beim für ein erfolgreiches Kompilieren notwendig.
+		\begin{lstlisting}[language=sh, morekeywords={latex,biber}]
+latex datei.tex
+biber datei.bcf || bibtex datei.aux
+latex datei.tex
+latex datei.tex
+		\end{lstlisting}
+\end{enumerate}
+\cite{greenwade93}
+
+\printbibliography
+
 \url{http://en.wikibooks.org/wiki/LaTeX/Bibliography_Management}
+\url{http://literatur-generator.de/}
 \end{document}
 
 
