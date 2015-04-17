@@ -23,22 +23,31 @@
 \documentclass[a4paper]{article}
 
 \usepackage{listings}
-\usepackage[]{color}
-\usepackage[colorlinks=true, pagebackref=true, linktoc=page, urlcolor=cyan]{hyperref}
+\usepackage[]{xcolor}
+\usepackage[colorlinks=true, pagebackref=false, linktoc=page, urlcolor=cyan]{hyperref}
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage[backend=biber]{biblatex}
+\usepackage[]{url}
 
 \renewcommand{\lstlistlistingname}{Codestellen} % Ändert die Überschrift von \lstlistoflistings.
 \renewcommand{\lstlistingname}{Codestelle}      % Ändert die Bezeichnung der Captions.
 
+% Zeilenumbruch bei langen URLs im Verzeichnis:
+% ACHTUNG: scheint nur mit pdflatex zu funktionieren.
+\setcounter{biburllcpenalty}{100}
+\setcounter{biburlucpenalty}{100}
+\addbibresource{literatur.bib}
+
 % Definiere einen eigenen Style:
 \lstdefinestyle{cli}{
-	backgroundcolor=\color{black},
+	backgroundcolor=\color{black!90},
 	basicstyle=\color{white},
 	identifierstyle=\color{white},
 	commentstyle=\color{cyan},
 	stringstyle=\color{green},
-	keywordstyle=\color{magenta},
+	keywordstyle=[1]\color{magenta},
+	keywordstyle=[47]\color{red},
 	frame=TRBL,
 	framesep=2pt,
 	rulesep=1pt,
@@ -49,7 +58,8 @@
 
 % Definiere eine eigene Sprache:
 \lstdefinelanguage{cli}{
-	morekeywords={cd, ls, echo},
+	morekeywords=[1]{cd, ls, echo},
+	morekeywords=[47]{$HOME}, % Es wäre eleganter %HOME mit keywordprefix zu definieren, dies scheint allerdings ein paar Probleme mit verschiedenen Listen zu geben.
 	sensitive=true,
 	morecomment=[l]{\#},
 	morestring=[b]",
@@ -76,6 +86,7 @@
 	\emph{lstlisting} definiert.
 \end{abstract}
 
+\section{Eine eigene Sprache}
 Mit \verb+\lstlistoflistings+ generiert man ein Verzeichnis aller listings mit
 Caption:
 \lstlistoflistings
@@ -93,5 +104,8 @@ Hier ein vergleichs c-Code, um zu sehen, welche Einstellungen durch
 	printf("Hallo Welt!")
 \end{lstlisting}
 
-Siehe auch \url{https://www.ctan.org/pkg/listings}.
+Für weiter Informationen siehe auch \cite{ctanListings}, \cite{wikiListings} oder \cite{manListings}.
+
+\printbibliography
+
 \end{document}
