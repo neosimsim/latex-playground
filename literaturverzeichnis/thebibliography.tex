@@ -26,30 +26,55 @@
 \usepackage[ngerman]{babel}
 \usepackage{listings}
 \usepackage[colorlinks=true, linktoc=page]{hyperref}
-\usepackage[]{color}
+\usepackage[]{xcolor}
 
-\begin{document}
-Es gibt verschiedene Varianten ein Literaturverzeichnis mit \LaTeX{} zu
-erstellen.
-
-\lstdefinestyle{latex}{
-	keywordstyle=\bfseries,
+\lstdefinestyle{LaTeX}{
+	keywordstyle=\bfseries\color{green!40!black},
+	texcsstyle=*\bfseries\color{red!80!black},
 	backgroundcolor=\color{white},
 	frame=single,
 }
 
 \lstset{
-	language=TeX,
-	morekeywords={begin,bibitem,emph,addbibresource},
+	language=[LaTeX]TeX,
+	morekeywords={thebibliography,lamport94},
 	tabsize=4,
-	style=latex
+	style=LaTeX
 }
 
-\tableofcontents
+\title{thebibliography}
+\author{Alexander Ben Nasrallah}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Es gibt verschiedene Varianten ein Literaturverzeichnis mit \LaTeX{} zu
+erstellen. Hier erläutern wir die Verwendung der eingebetteten \verb+thebibliography+
+Umgebung.
+\end{abstract}
 
 \section{thebibliography}
 \LaTeX{} liefert bereits eine Umgebung mit, \verb+thebibliography+. In dieser
 Umgebung werden alle Referenzen aufgelistet.
+
+\begin{lstlisting}[]
+\begin{thebibliography}{9}
+	\bibitem{lamport94}
+		Leslie Lamport,
+		\emph{\LaTeX: a document preparation system},
+		Addison Wesley, Massachusetts,
+		2nd edition,
+		1994.
+	\bibitem{lamport95}
+		Leslie Lamport,
+		\emph{\LaTeX: a document preparation system},
+		Addison Wesley, Massachusetts,
+		3nd edition,
+		1995.
+\end{thebibliography}
+\end{lstlisting}
+
 \begin{thebibliography}{9}
 	\bibitem{lamport94}	% Der Parameter ist der Referenzschlüssel, muss also eindeutig sein.
 		Leslie Lamport,
@@ -64,19 +89,6 @@ Umgebung werden alle Referenzen aufgelistet.
 		3nd edition,
 		1995.
 \end{thebibliography}
-
-Der Code zum obigem Literaturverzeichnis sieht wie folgt aus:
-\begin{lstlisting}[]
-\begin{thebibliography}{9}
-	\bibitem{lamport94}
-		Leslie Lamport,
-		\emph{\LaTeX: a document preparation system},
-		Addison Wesley, Massachusetts,
-		2nd edition,
-		1994.
-	...
-\end{thebibliography}
-\end{lstlisting}
 
 Links verweist man mit \verb+\cite{<item name>}+: \cite{lamport94}.
 
