@@ -27,13 +27,10 @@
 \usepackage{listings}
 \usepackage[colorlinks=true, linktoc=page]{hyperref}
 \usepackage[]{color}
-\usepackage[backend=biber]{biblatex}                 % Biber ist eigentlich der Standardwert. Eine Alternative ist bibtex.
+\usepackage[backend=biber]{biblatex}                 % Biber ist der Standardwert. Eine Alternative ist bibtex.
 \addbibresource{literatur.bib}
 
-\begin{document}
-Es gibt verschiedene Varianten ein Literaturverzeichnis mit \LaTeX{} zu
-erstellen.
-
+\bibliography{literatur}
 \lstdefinestyle{latex}{
 	keywordstyle=\bfseries,
 	backgroundcolor=\color{white},
@@ -41,16 +38,19 @@ erstellen.
 }
 
 \lstset{
-	language=TeX,
+	language=sh,
 	morekeywords={begin,bibitem,emph,addbibresource},
 	tabsize=4,
 	style=latex
 }
 
+\begin{document}
+Es gibt verschiedene Varianten ein Literaturverzeichnis mit \LaTeX{} zu
+erstellen. Hier gehen wir auf die Verwendung von \emph{BibLaTeX} ein.
+
 \tableofcontents
 
-\section{BibLaTeX}
-\emph{BibLaTeX} ist der Nachfolger von \emph{BibTeX} und wir werden uns hier auf
+\emph{BibLaTeX} ist der Nachfolger von \emph{BibTeX} \cite{wikiBibliography} und wir werden uns hier auf
 \emph{BibLaTeX} einschrenken. \emph{BibLaTeX} verwendet eine Datenbank zu
 referenzieren. Dies hat den Vorteil, dass man leichter aus mehreren .tex-Dateien
 referenzieren kann.
@@ -58,6 +58,8 @@ referenzieren kann.
 
 Die Verwendung ist allerdings aufwendiger als mit der
 \emph{thebibliography}-Umgebung.
+
+\section{Erstellen von Verzeichnissen}
 \begin{enumerate}
 	\item Das Paket \emph{biblatex} muss geladen werden.
 	\item Die Datenbankdatei musst angegeben werden
@@ -66,19 +68,36 @@ Die Verwendung ist allerdings aufwendiger als mit der
 		\end{lstlisting}
 	\item Nun kann man mit \verb+\cite{greenwade93}+ zitieren.
 	\item Nun wird \LaTeX{} beim Kompilieren einen Fehler melden, das die Referenzen nicht bekannt sind. Daher sind folgende Schritte beim für ein erfolgreiches Kompilieren notwendig.
-		\begin{lstlisting}[language=sh, morekeywords={latex,biber}]
+		\begin{lstlisting}[language=sh]
 latex datei.tex
 biber datei.bcf || bibtex datei.aux
 latex datei.tex
 latex datei.tex
+begin
 		\end{lstlisting}
 \end{enumerate}
-\cite{greenwade93}
 
 \printbibliography
 
-\url{http://en.wikibooks.org/wiki/LaTeX/Bibliography_Management}
-\url{http://literatur-generator.de/}
+\section{Hinweise}
+\subsection{Umbruch in URLs}
+{\bf ACHTUNG!} Folgendes schein nur mit \verb+pdflatex+ zu funktionieren, \cite{urlLineBreakWithBibLatex}.
+
+BibLaTex sollte automatisch einen Zeilenumbruch in URLs einfügen.
+Um das Umruchverhalten zu kontrollieren, liefert BibLaTex Zählvariablem mit:
+\begin{lstlisting}
+\setcounter{biburlnumpenalty}{7000}
+\setcounter{biburllcpenalty}{8000}
+\setcounter{biburlucpenalty}{9000}
+\end{lstlisting}
+
+Für weiter Informationen siehe \cite{manBibLaTeX}.
+
+\section{Werkzeuge}
+Ein Online-Literaturgenerator \cite{litGen}
+
+\printbibliography
+
 \end{document}
 
 
