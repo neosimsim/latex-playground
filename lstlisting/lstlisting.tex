@@ -112,4 +112,43 @@ Für weiter Informationen siehe auch \cite{ctanListings}, \cite{wikiListings} od
 
 \printbibliography
 
+\section{Sprachen erweitern}
+In diesem Abschnitt wollen wir zwei identische Codeblöcke vergleichen. Der
+Codeblock enthält C- und \LaTeX{}anweisungen. Wir wollen nun neue
+Schlüsselwörter für die \emph{einzelnen} Sprachen definieren.
+
+% lstset ändert die Standardeinstellungen
+\lstset{
+	backgroundcolor=\color{white},
+	frame=single,
+}
+\lstset{
+	language=c, % Ab jetzt ist jeder Code erstmal C-Code.
+	keywordstyle=\color{blue},
+}
+\lstset{
+	language=Java, % Ab jetzt ist JEDER code Java-Code.
+	morekeywords={include,printf,out,Hallo}, % Dies ändert ALLE Keyword, nicht nur von Java.
+	keywordstyle=\bfseries\color{green!40!black}, % Dies überschreibt blau für c.
+}
+
+\lstinputlisting{code.txt}                % c-Code
+\lstinputlisting{code.txt}                % Java-Code
+Wird die Sprache optional neu gesetzt, scheint die keyword-Liste überschrieben zu werden.
+\lstinputlisting[language=Java]{code.txt} % Java-Code
+
+Mit einer Erweiterung einer Sprachdefinition kann man die keyword-Liste
+erweitern und die Sprache in der Liste optionaler Argumente setzen.
+Hier haben wir Java um den Dialekt \emph{my} erweitert.
+\lstdefinelanguage[my]{Java}[]{Java}{     % Dies ist die hier relevante Codestelle.
+	morekeywords={Welt, println}
+}
+\lstinputlisting[language={[my]Java}]{code.txt} % Java-Code
+
+Hier noch einmal ohne Dialekt.
+\lstinputlisting[language={[]Java}]{code.txt} % Java-Code
+
+\section{Fazit}
+Man sollte mit Spracherweiterungen und Dialekten arbeiten anstatt alles in
+einen \verb+\lstlet+-Block zu packen.
 \end{document}

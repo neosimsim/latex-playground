@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main()
+{
+   printf("Hallo Welt\n");
+   return 0;
+}
+
+class Hallo {
+  public static void main( String[] args ) {
+    System.out.println("Hallo Welt!");
+  }
+}
