@@ -14,3 +14,5 @@ Aktuell sind folgende Projekte enthalten.
   in Dokumente, ggf. mit Syntaxhervorhebung, einzubinden.
 - **typografie** liefert eine Liste von „Typografiesünden“, die man dringend
   vermeiden sollte, sowie Umsetzung in **LaTeX**.
+- **literaturverzeichnis** dient als Vorlage oder zum Nachschlagen von erstellen
+  von Literaturverzeichnissen mit LaTeX.
